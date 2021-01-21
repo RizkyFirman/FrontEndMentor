@@ -1,5 +1,19 @@
-.attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    padding: 1rem 2rem;
+    background-image: url(images/bg-pattern-card.svg);
+    transition: 300ms;
+}
+
+.attribution p {
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: .5em;
+}
+.attribution a {
+    color: hsl(0, 0%, 100%);
+}
 
 *{
     box-sizing: border-box;
@@ -23,53 +37,57 @@ body{
     height: 100vh;
     background-color: var(--color3);
     font-family: var(--font);
-    overflow: hidden;
 }
 
 h1{
     font-size: 18px;
     font-weight: var(--font-weight2);
+    color: var(--color1);
 }
 
 span, p{
     font-weight: var(--font-weight1);
+    color: var(--color2);
 }
 
 .bg-pattern{
-    position: absolute;
-    z-index: -2;
+    position: relative;
     width: 100%;
     height: 100%;
+    overflow: hidden;
+}
+
+.top-pattern, .bottom-pattern{
+    position: absolute;
+    /* height: 800px; */
 }
 
 .top-pattern{
-    width: 500px;
-    height: auto;
-    position: absolute;
-    top: -40%;
-    left: -70%;
+    transform: translate(-70%, -60%);
+    top: 0;
+    left: 0;
 }
+
 .bottom-pattern{
-    width: 500px;
-    height: auto;
-    position: absolute;
-    bottom: -70%;
-    right: -70%;
+    transform: translate(70%, 60%);
+    right: 0;
+    bottom: 0;
 }
 
 .card{
-    position: relative;
-    z-index: 1000;
-    max-width: 300px;
-    height: 350px;
+    position: absolute;
+    min-width: 300px;
+    height: 300px;
     background: white;
     display: grid;
-    grid-template: 35% 40% 25% / 1fr;
+    grid-template: 35% 40% auto / 1fr;
     border-radius: 20px;
+    overflow: hidden;
+    margin: 0 auto;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    overflow: hidden;
+    box-shadow: 0px 10px 30px 20px rgba(0,0,0,.08);
 }
 
 .header-pattern{
@@ -86,25 +104,24 @@ span, p{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
     position: relative;
     color: var(--color1);
 }
 .content{
-    border-bottom: solid 1px hsl(0, 0%, 59%);
+    border-bottom: solid 1px hsl(0, 0%, 94%);
 }
 
 .content img{
     width: 100px;
     height: 100px;
     border-radius: 50px;
-    border: solid 5px white;
+    border: solid 8px white;
     position: absolute;
     top: -40%;
 }
 
 .content h1{
-    margin-top: 1.2em;
+    margin-top: 2.5em;
 }
 .content p{
     margin-top: .4em;
@@ -114,6 +131,7 @@ span, p{
     height: auto;
     flex-direction: row;
     justify-content: space-between;
+    padding: 0 2rem;
 }
 
 .content-stat{
@@ -129,29 +147,22 @@ span, p{
 
 .content-stat p{
     letter-spacing: 1px;
+    font-size: .8rem;
 }
 
 /* web */
-@media (min-width:768px){
+@media only screen and (min-width:768px){
     
+    .top-pattern, .bottom-pattern{
+        position: absolute;
+        width: 100%;
+    }
 
     .top-pattern{
-        width: 900px;
-        height: auto;
-        position: absolute;
-        top: -75%;
-        left: -25%;
-    }
-    .bottom-pattern{
-        width: 900px;
-        height: auto;
-        position: absolute;
-        bottom: -75%;
-        right: -25%;
+        transform: translate(-40%, -70%);
     }
     
-    .card{
-        max-width: 400px;
+    .bottom-pattern{
+        transform: translate(40%, 70%);
     }
-
 }
